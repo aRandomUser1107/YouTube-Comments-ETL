@@ -1,0 +1,6 @@
+video_ids:
+- "luNHAhqraCI" # video example
+
+max_results_per_page: 100
+
+database_url: "sqlite:///data/youtube_comments.db"
