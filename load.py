@@ -21,6 +21,8 @@ def _ensure_table(engine: sa.Engine):
         sa.Column("published_at", sa.DateTime),
         sa.Column("updated_at", sa.DateTime),
         sa.Column("reply_count", sa.Integer),
+        sa.Column("sentiment_score", sa.Float),
+        sa.Column("sentiment_label", sa.String),
     )
     metadata.create_all(engine)
  

@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from extract import extract_all
 from transform import transform
 from load import load
+from sentiment import add_sentiment
 
 logging.basicConfig(
     level=logging.INFO,
@@ -44,6 +45,10 @@ def run():
     df = transform(raw_comments)
     logger.info("Transform complete: %d cleaned comment(s)", len(df))
 
+    # VADER Sentiment Analysis
+    df = add_sentiment(df)
+    logger.info("Sentiment analysis finished")
+    
     # Load
     load(df, database_url)
     logger.info("ETL run finished")
